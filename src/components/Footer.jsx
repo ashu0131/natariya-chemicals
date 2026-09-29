@@ -1,83 +1,123 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Leaf, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Leaf, Phone, Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
+
 export default function Footer() {
   const { t } = useTranslation();
+
   return (
-    <footer className="bg-brand-950 text-white">
-      <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/10 text-brand-300">
-              <Leaf />
-            </span>
-            <span>
-              <strong className="block">Natariya Chemicals</strong>
-              <small className="text-white/60">Industries Pvt. Ltd.</small>
-            </span>
+    <footer className="bg-[#101713] text-white">
+      {/* Main Footer */}
+      <div className="container-x py-14 sm:py-16">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1fr] lg:gap-16">
+          
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-400">
+                <Leaf size={22} />
+              </span>
+
+              <span>
+                <strong className="block text-base font-bold tracking-tight">
+                  Natariya Chemicals
+                </strong>
+                <small className="text-sm text-white/45">
+                  Industries Pvt. Ltd.
+                </small>
+              </span>
+            </div>
+
+            <p className="mt-5 max-w-md text-sm leading-6 text-white/55">
+              {t("footer.desc")}
+            </p>
           </div>
-          <p className="mt-5 max-w-sm text-sm leading-6 text-white/65">
-            {t("footer.desc")}
-          </p>
-        </div>
-        <div>
-          <h3 className="font-bold">{t("footer.links")}</h3>
-          <div className="mt-4 grid gap-2 text-sm text-white/65">
-            {[
-              ["/", t("nav.home")],
-              ["/about", t("nav.about")],
-              ["/products", t("nav.products")],
-              ["/gallery", t("nav.gallery")],
-              ["/contact", t("nav.contact")],
-            ].map(([to, x]) => (
-              <Link className="hover:text-white" key={to} to={to}>
-                {x}
-              </Link>
-            ))}
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90">
+              {t("footer.links")}
+            </h3>
+
+            <div className="mt-5 grid gap-3 text-sm text-white/55">
+              {[
+                ["/", t("nav.home")],
+                ["/about", t("nav.about")],
+                ["/products", t("nav.products")],
+                ["/gallery", t("nav.gallery")],
+                ["/contact", t("nav.contact")],
+              ].map(([to, label]) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className="w-fit transition-colors duration-200 hover:text-emerald-400"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-        <div>
-          <h3 className="font-bold">{t("contact.get")}</h3>
-          <div className="mt-4 space-y-3 text-sm text-white/65">
-            <a className="flex gap-2" href="tel:+918958778325">
-              <Phone size={16} />
-              <span>+91 8958778325</span>
-            </a>
-            <a className="flex gap-2" href="mailto:info@natariya.com">
-              <Mail size={16} />
-              <span>info@natariya.com</span>
-            </a>
-            <span className="flex gap-2">
-              <MapPin size={16} />
-              <span>Industrial Area Sikandrabad, Sikandarabad, Uttar Pradesh</span>
-            </span>
-          </div>
-        </div>
-        <div>
-          <h3 className="font-bold">Newsletter</h3>
-          <p className="mt-4 text-sm leading-6 text-white/65">
-            {t("footer.newsletter")}
-          </p>
-          <div className="mt-4 flex overflow-hidden rounded-xl border border-white/15 bg-white/5">
-            <input
-              className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none"
-              placeholder="Email address"
-            />
-            <button className="bg-brand-700 px-4">
-              <ArrowUpRight size={18} />
-            </button>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90">
+              {t("contact.get")}
+            </h3>
+
+            <div className="mt-5 space-y-4 text-sm text-white/55">
+              <a
+                href="tel:+918958778325"
+                className="group flex items-start gap-3 transition-colors hover:text-emerald-400"
+              >
+                <Phone
+                  size={17}
+                  className="mt-0.5 shrink-0 text-emerald-500"
+                />
+                <span>+91 8958778325</span>
+              </a>
+
+              <a
+                href="mailto:info@natariya.com"
+                className="group flex items-start gap-3 transition-colors hover:text-emerald-400"
+              >
+                <Mail
+                  size={17}
+                  className="mt-0.5 shrink-0 text-emerald-500"
+                />
+                <span>info@natariya.com</span>
+              </a>
+
+              <div className="flex items-start gap-3">
+                <MapPin
+                  size={17}
+                  className="mt-0.5 shrink-0 text-emerald-500"
+                />
+                <span className="leading-6">
+                  Industrial Area Sikandrabad,
+                  <br />
+                  Sikandarabad, Uttar Pradesh
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5">
-        <div className="container-x flex flex-col justify-between gap-2 text-xs text-white/45 sm:flex-row">
+
+      {/* Bottom Bar */}
+      <div className="border-t border-white/[0.08] bg-black/15">
+        <div className="container-x flex flex-col items-center justify-between gap-3 py-5 text-center text-xs text-white/40 sm:flex-row sm:text-left">
           <span>
             © {new Date().getFullYear()} Natariya Chemicals Industries Pvt. Ltd.
           </span>
-          <span>Quality • Innovation • Sustainable Agriculture</span>
+
+          <span className="text-white/30">
+            Quality <span className="mx-1 text-emerald-500">•</span> Innovation{" "}
+            <span className="mx-1 text-emerald-500">•</span> Sustainable Agriculture
+          </span>
         </div>
       </div>
     </footer>
   );
 }
+

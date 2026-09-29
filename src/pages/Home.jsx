@@ -217,7 +217,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-brand-950 py-12 sm:py-16 text-white">
+      <section className="bg-gray-950 py-12 sm:py-16 text-white">
         <div className="container-x grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["5+", "Years Experience", FlaskConical],
@@ -236,7 +236,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="bg-gradient-to-r from-brand-800 to-brand-950 py-12 sm:py-16 text-white">
+      <section className="bg-gradient-to-r from-brand-900 to-brand-950 py-12 sm:py-16 text-white">
         <div className="container-x flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
           <div>
             <span className="eyebrow !text-brand-200">Partner With Us</span>

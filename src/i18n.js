@@ -102,10 +102,18 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: localStorage.getItem("natariya_lang") || "en",
-  fallbackLng: "en",
-  interpolation: { escapeValue: false },
-  returnObjects: true
+
+  // Default Hindi
+  lng: localStorage.getItem("natariya_lang") || "hi",
+
+  // If translation is missing, use Hindi
+  fallbackLng: "hi",
+
+  interpolation: {
+    escapeValue: false,
+  },
+
+  returnObjects: true,
 });
 
 export default i18n;

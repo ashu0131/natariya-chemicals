@@ -24,12 +24,12 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-brand-950 text-[10px] text-white/80 sm:text-[11px]">
+      <div className="bg-[#101713] text-[10px] text-white/80 sm:text-[11px]">
         <div className="container-x flex min-h-9 items-center justify-between">
           <span className="truncate">5+ Years of Agricultural Solutions</span>
-          <a href="tel:+919876543210" className="flex items-center gap-1">
+          <a href="tel:+918958778325" className="flex items-center gap-1">
             <PhoneCall size={12} />
-            <span>+91 98765 43210</span>
+            <span>+91 8958778325</span>
           </a>
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function Navbar() {
               ))}
 
               <a
-                href="tel:+919876543210"
+                href="tel:+918958778325"
                 className="ml-2 flex items-center gap-2 rounded-xl bg-brand-700 px-4 py-2.5 text-sm font-semibold text-white"
               >
                 <PhoneCall size={15} />

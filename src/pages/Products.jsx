@@ -234,11 +234,11 @@ export default function Products() {
 
             <a
               className="btn-light w-full shrink-0 sm:w-auto"
-              href="tel:+919876543210"
+              href="tel:+918958778325"
             >
               <PhoneCall size={17} />
 
-              +91 98765 43210
+              +91 8958778325
 
               <ArrowRight size={16} />
             </a>
