@@ -104,9 +104,8 @@ export default function Contact() {
     setLoading(false);
   };
 
-  const map =
-    import.meta.env.VITE_MAP_EMBED_URL ||
-    "https://www.google.com/maps?q=Industrial%20Area%2C%20Sikandrabad%2C%20Uttar%20Pradesh%2C%20India&output=embed";
+  const map = import.meta.env.VITE_MAP_EMBED_URL;
+    
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     "Hello Natariya Chemicals, I would like to know more about your products."
