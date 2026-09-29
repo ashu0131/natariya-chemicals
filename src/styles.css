@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{@apply bg-stone-50 text-slate-800 antialiased;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+  ::selection{@apply bg-brand-200 text-brand-950}
+  input,textarea,select{@apply outline-none}
+  img{max-width:100%}
+}
+
+@layer components {
+  .container-x{@apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8}
+  .btn{@apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-300 sm:px-5 sm:py-3}
+  .btn-primary{@apply btn bg-brand-700 text-white shadow-lg shadow-brand-900/10 hover:-translate-y-0.5 hover:bg-brand-800}
+  .btn-outline{@apply btn border border-brand-700 bg-white text-brand-800 hover:-translate-y-0.5 hover:bg-brand-50}
+  .btn-light{@apply btn bg-white text-brand-900 hover:-translate-y-0.5 hover:bg-brand-50}
+  .eyebrow{@apply mb-3 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.18em] text-brand-700 sm:text-xs sm:tracking-[.22em]}
+  .eyebrow::before{content:"";@apply h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600}
+  .section-title{@apply text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl}
+  .section-copy{@apply mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:mt-4 sm:text-base sm:leading-7}
+  .admin-input{@apply mt-2 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 shadow-sm transition focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 sm:px-4 sm:py-3}
+}
+
+@media (max-width:639px){
+  .py-20{padding-top:3.5rem!important;padding-bottom:3.5rem!important}
+  .py-16{padding-top:3rem!important;padding-bottom:3rem!important}
+  .py-14{padding-top:2.75rem!important;padding-bottom:2.75rem!important}
+  .min-h-\[650px\]{min-height:570px!important}
+  .min-h-\[620px\]{min-height:540px!important}
+  .min-h-\[560px\]{min-height:500px!important}
+  main{overflow:hidden}
+  main h1{overflow-wrap:anywhere}
+}
