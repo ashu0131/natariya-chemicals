@@ -111,10 +111,17 @@ export default function Footer() {
             © {new Date().getFullYear()} Natariya Chemicals Industries Pvt. Ltd.
           </span>
 
-          <span className="text-white/30">
-            Quality <span className="mx-1 text-emerald-500">•</span> Innovation{" "}
-            <span className="mx-1 text-emerald-500">•</span> Sustainable Agriculture
-          </span>
+          <span className="text-white/40">
+  Crafted & Developed by{" "}
+  <a
+    href="https://ashuverma-04.netlify.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="font-semibold text-emerald-400 transition hover:text-emerald-300"
+  >
+    Ashu Verma
+  </a>
+</span>
         </div>
       </div>
     </footer>
