@@ -11,6 +11,7 @@ import {
   FlaskConical,
   Handshake,
   Target,
+  Quote,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
@@ -43,10 +44,7 @@ export default function Home() {
         .limit(4);
 
       if (error) {
-        console.error(
-          "Error fetching featured products:",
-          error
-        );
+        console.error("Error fetching featured products:", error);
         return;
       }
 
@@ -60,22 +58,22 @@ export default function Home() {
     {
       icon: ShieldCheck,
       title: t("home.reasons")[0],
-      text: "Trusted by farmers",
+      text: t("home.reasonTexts")[0],
     },
     {
       icon: Sprout,
       title: t("home.reasons")[1],
-      text: "Responsible agriculture",
+      text: t("home.reasonTexts")[1],
     },
     {
       icon: Users,
       title: t("home.reasons")[2],
-      text: "Practical field support",
+      text: t("home.reasonTexts")[2],
     },
     {
       icon: Lightbulb,
       title: t("home.reasons")[3],
-      text: "Better ideas for tomorrow",
+      text: t("home.reasonTexts")[3],
     },
   ];
 
@@ -94,7 +92,6 @@ export default function Home() {
           HERO SECTION
       ===================================================== */}
       <section className="relative min-h-[570px] overflow-hidden bg-brand-950 text-white sm:min-h-[620px]">
-
         <img
           src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?auto=format&fit=crop&w=2200&q=85"
           alt="Green agricultural field"
@@ -106,7 +103,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-950/60 via-transparent to-transparent" />
 
         <div className="container-x relative flex min-h-[570px] items-center py-14 sm:min-h-[620px] sm:py-20">
-
           <motion.div
             initial={{
               opacity: 0,
@@ -121,12 +117,10 @@ export default function Home() {
             }}
             className="max-w-3xl"
           >
-
             {/* Experience Badge */}
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-brand-100 backdrop-blur">
               <Leaf size={15} />
-
-              5+ Years of Excellence
+              {t("home.experienceBadge")}
             </span>
 
             {/* Hero Title */}
@@ -141,13 +135,11 @@ export default function Home() {
 
             {/* Buttons */}
             <div className="mt-7 flex flex-col gap-3 xs:flex-row sm:flex-row">
-
               <Link
                 to="/products"
                 className="btn-light w-full sm:w-auto"
               >
                 {t("common.explore")}
-
                 <ArrowRight size={17} />
               </Link>
 
@@ -157,7 +149,6 @@ export default function Home() {
               >
                 {t("common.contact")}
               </Link>
-
             </div>
           </motion.div>
 
@@ -187,10 +178,9 @@ export default function Home() {
             </strong>
 
             <span className="text-xs text-white/65">
-              Years of Experience
+              {t("home.yearsExperience")}
             </span>
           </motion.div>
-
         </div>
       </section>
 
@@ -198,9 +188,7 @@ export default function Home() {
           INTRO / COMMITMENT SECTION
       ===================================================== */}
       <section className="border-b border-slate-200 bg-white py-12 sm:py-16">
-
         <div className="container-x grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-
           {/* Image */}
           <motion.div
             initial={{
@@ -225,9 +213,8 @@ export default function Home() {
 
           {/* Content */}
           <div className="flex flex-col justify-center">
-
             <span className="eyebrow">
-              Our Commitment
+              {t("home.commitmentEyebrow")}
             </span>
 
             <h2 className="section-title">
@@ -243,16 +230,13 @@ export default function Home() {
               to="/about"
             >
               {t("common.learn")}
-
               <ArrowRight size={16} />
             </Link>
-
           </div>
         </div>
 
         {/* Reasons */}
         <div className="container-x mt-12 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
-
           {reasons.map(
             ({ icon: Icon, title, text }) => (
               <div
@@ -271,7 +255,6 @@ export default function Home() {
               </div>
             )
           )}
-
         </div>
       </section>
 
@@ -279,19 +262,15 @@ export default function Home() {
           FEATURED PRODUCTS
       ===================================================== */}
       <section className="py-12 sm:py-16 lg:py-20">
-
         <div className="container-x">
-
           <SectionHeading
-            eyebrow="Product Range"
+            eyebrow={t("home.productRange")}
             title={t("home.productsTitle")}
             text={t("home.productsText")}
           />
 
-          {/* Product Cards */}
           {products.length > 0 ? (
             <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
-
               {products.slice(0, 4).map((product) => (
                 <ProductCard
                   key={product.id}
@@ -301,25 +280,136 @@ export default function Home() {
                   }
                 />
               ))}
-
             </div>
           ) : (
             <div className="mt-8 rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-sm text-slate-500">
-              No featured products available.
+              {t("home.noFeaturedProducts")}
             </div>
           )}
 
-          {/* View All */}
           <div className="mt-10 text-center">
-
             <Link
               className="btn-outline"
               to="/products"
             >
               {t("common.viewAll")}
-
               <ArrowRight size={16} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          FOUNDER SECTION
+      ===================================================== */}
+      <section className="overflow-hidden bg-brand-50 py-14 sm:py-20">
+        <div className="container-x">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+
+            {/* Founder Photo */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: -40,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              transition={{
+                duration: 0.7,
+              }}
+              className="relative mx-auto w-full max-w-md"
+            >
+              {/* Decorative background */}
+              <div className="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border-2 border-brand-200 sm:-left-6 sm:-top-6" />
+
+              <div className="relative overflow-hidden rounded-[2rem] bg-white shadow-xl">
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  alt={t("home.founderName")}
+                  className="aspect-[4/5] w-full object-cover"
+                />
+
+                {/* Bottom badge */}
+                <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/20 bg-brand-950/85 p-4 text-white backdrop-blur-md">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-200">
+                    {t("home.founderBadge")}
+                  </p>
+
+                  <h3 className="mt-1 text-lg font-black">
+                    {t("home.founderName")}
+                  </h3>
+
+                  <p className="text-xs text-white/65">
+                    {t("home.founderDesignation")}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Founder Content */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: 40,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.1,
+              }}
+            >
+              <span className="eyebrow">
+                {t("home.founderEyebrow")}
+              </span>
+
+              <h2 className="mt-3 text-3xl font-black leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                {t("home.founderTitle")}
+              </h2>
+
+              <div className="mt-6 flex items-start gap-4">
+                <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-700 text-white">
+                  <Quote size={20} />
+                </div>
+
+                <p className="text-base font-semibold leading-7 text-brand-800 sm:text-lg">
+                  {t("home.founderQuote")}
+                </p>
+              </div>
+
+              <p className="mt-6 text-sm leading-7 text-slate-600 sm:text-base">
+                {t("home.founderText")}
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  to="/about"
+                  className="btn w-full sm:w-auto"
+                >
+                  {t("home.founderButton")}
+                  <ArrowRight size={16} />
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="btn-outline w-full sm:w-auto"
+                >
+                  {t("common.contact")}
+                </Link>
+              </div>
+            </motion.div>
 
           </div>
         </div>
@@ -329,68 +419,50 @@ export default function Home() {
           WHY CHOOSE US / PROMISE
       ===================================================== */}
       <section className="bg-brand-50 py-12 sm:py-16 lg:py-20">
-
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-center">
 
           {/* Left */}
           <div>
-
             <SectionHeading
-              eyebrow="Our Promise"
+              eyebrow={t("home.promiseEyebrow")}
               title={t("home.whyTitle")}
             />
 
             <div className="mt-8 space-y-4">
-
               {[
-                "Quality products",
-                "Farmer-focused solutions",
-                "Technical support",
-                "Responsible innovation",
+                t("home.promiseItems.0"),
+                t("home.promiseItems.1"),
+                t("home.promiseItems.2"),
+                t("home.promiseItems.3"),
               ].map((x, i) => (
-
                 <div
                   key={x}
                   className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm"
                 >
-
                   <CheckCircle2 className="mt-0.5 shrink-0 text-brand-700" />
 
                   <div>
-
                     <strong className="block text-sm font-extrabold">
                       {x}
                     </strong>
 
                     <p className="mt-1 text-sm text-slate-600">
-                      {
-                        [
-                          "Reliable quality standards",
-                          "Solutions designed around real farm needs",
-                          "Practical guidance for customers",
-                          "Continuous improvement with responsibility",
-                        ][i]
-                      }
+                      {t(`home.promiseDescriptions.${i}`)}
                     </p>
-
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
 
           {/* Image */}
           <div className="overflow-hidden rounded-3xl shadow-soft">
-
             <img
               src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=85"
               alt="Farmer in crop field"
               className="aspect-[4/3] w-full object-cover"
             />
-
           </div>
-
         </div>
       </section>
 
@@ -398,21 +470,17 @@ export default function Home() {
           STATS
       ===================================================== */}
       <section className="bg-gray-950 py-12 text-white sm:py-16">
-
         <div className="container-x grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
           {[
-            ["5+", "Years Experience", FlaskConical],
-            ["50+", "Product Range", Sprout],
-            ["1000+", "Happy Customers", Handshake],
-            ["100%", "Quality Focus", Target],
+            ["5+", t("home.stats.years"), FlaskConical],
+            ["50+", t("home.stats.products"), Sprout],
+            ["1000+", t("home.stats.customers"), Handshake],
+            ["100%", t("home.stats.quality"), Target],
           ].map(([number, label, Icon]) => (
-
             <div
               key={label}
               className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center"
             >
-
               <Icon
                 className="mx-auto text-brand-300"
                 size={26}
@@ -425,10 +493,8 @@ export default function Home() {
               <span className="text-sm text-white/60">
                 {label}
               </span>
-
             </div>
           ))}
-
         </div>
       </section>
 
@@ -436,13 +502,10 @@ export default function Home() {
           CTA
       ===================================================== */}
       <section className="bg-gradient-to-r from-brand-900 to-brand-950 py-12 text-white sm:py-16">
-
         <div className="container-x flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
-
           <div>
-
             <span className="eyebrow !text-brand-200">
-              Partner With Us
+              {t("home.partnerEyebrow")}
             </span>
 
             <h2 className="text-3xl font-black sm:text-4xl">
@@ -452,7 +515,6 @@ export default function Home() {
             <p className="mt-3 max-w-2xl text-white/70">
               {t("home.ctaText")}
             </p>
-
           </div>
 
           <Link
@@ -460,10 +522,8 @@ export default function Home() {
             to="/contact"
           >
             {t("common.contact")}
-
             <ArrowRight size={17} />
           </Link>
-
         </div>
       </section>
 
